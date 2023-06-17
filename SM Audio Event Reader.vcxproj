@@ -71,23 +71,23 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>$(SolutionDir)Build\$(PlatformShortName)-$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)Junk\$(PlatformShortName)-$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)Build\$(SolutionName)-$(PlatformShortName)-$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)Build\Junk\$(PlatformShortName)-$(Configuration)\</IntDir>
     <CopyCppRuntimeToOutputDir>true</CopyCppRuntimeToOutputDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>$(SolutionDir)Build\$(PlatformShortName)-$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)Junk\$(PlatformShortName)-$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)Build\$(SolutionName)-$(PlatformShortName)-$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)Build\Junk\$(PlatformShortName)-$(Configuration)\</IntDir>
     <CopyCppRuntimeToOutputDir>true</CopyCppRuntimeToOutputDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>$(SolutionDir)Build\$(PlatformShortName)-$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)Junk\$(PlatformShortName)-$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)Build\$(SolutionName)-$(PlatformShortName)-$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)Build\Junk\$(PlatformShortName)-$(Configuration)\</IntDir>
     <CopyCppRuntimeToOutputDir>true</CopyCppRuntimeToOutputDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(SolutionDir)Build\$(PlatformShortName)-$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)Junk\$(PlatformShortName)-$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)Build\$(SolutionName)-$(PlatformShortName)-$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)Build\Junk\$(PlatformShortName)-$(Configuration)\</IntDir>
     <CopyCppRuntimeToOutputDir>true</CopyCppRuntimeToOutputDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -98,6 +98,8 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\json;$(SolutionDir)Dependencies\FMOD\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -106,10 +108,10 @@
       <AdditionalDependencies>fmod_vc.lib;fmodL_vc.lib;fmodstudio_vc.lib;fmodstudioL_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /y /d "$(SolutionDir)Dependencies\FMOD\DLL\$(PlatformShortName)\fmod.dll" "$(SolutionDir)Build\$(PlatformShortName)-$(Configuration)"
-xcopy /y /d "$(SolutionDir)Dependencies\FMOD\DLL\$(PlatformShortName)\fmodL.dll" "$(SolutionDir)Build\$(PlatformShortName)-$(Configuration)"
-xcopy /y /d "$(SolutionDir)Dependencies\FMOD\DLL\$(PlatformShortName)\fmodstudio.dll" "$(SolutionDir)Build\$(PlatformShortName)-$(Configuration)"
-xcopy /y /d "$(SolutionDir)Dependencies\FMOD\DLL\$(PlatformShortName)\fmodstudioL.dll" "$(SolutionDir)Build\$(PlatformShortName)-$(Configuration)"</Command>
+      <Command>xcopy /y /d "$(SolutionDir)Dependencies\FMOD\DLL\$(PlatformShortName)\fmod.dll" "$(SolutionDir)Build\$(SolutionName)-$(PlatformShortName)-$(Configuration)"
+xcopy /y /d "$(SolutionDir)Dependencies\FMOD\DLL\$(PlatformShortName)\fmodL.dll" "$(SolutionDir)Build\$(SolutionName)-$(PlatformShortName)-$(Configuration)"
+xcopy /y /d "$(SolutionDir)Dependencies\FMOD\DLL\$(PlatformShortName)\fmodstudio.dll" "$(SolutionDir)Build\$(SolutionName)-$(PlatformShortName)-$(Configuration)"
+xcopy /y /d "$(SolutionDir)Dependencies\FMOD\DLL\$(PlatformShortName)\fmodstudioL.dll" "$(SolutionDir)Build\$(SolutionName)-$(PlatformShortName)-$(Configuration)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -122,6 +124,10 @@ xcopy /y /d "$(SolutionDir)Dependencies\FMOD\DLL\$(PlatformShortName)\fmodstudio
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\json;$(SolutionDir)Dependencies\FMOD\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -132,10 +138,10 @@ xcopy /y /d "$(SolutionDir)Dependencies\FMOD\DLL\$(PlatformShortName)\fmodstudio
       <AdditionalDependencies>fmod_vc.lib;fmodL_vc.lib;fmodstudio_vc.lib;fmodstudioL_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /y /d "$(SolutionDir)Dependencies\FMOD\DLL\$(PlatformShortName)\fmod.dll" "$(SolutionDir)Build\$(PlatformShortName)-$(Configuration)"
-xcopy /y /d "$(SolutionDir)Dependencies\FMOD\DLL\$(PlatformShortName)\fmodL.dll" "$(SolutionDir)Build\$(PlatformShortName)-$(Configuration)"
-xcopy /y /d "$(SolutionDir)Dependencies\FMOD\DLL\$(PlatformShortName)\fmodstudio.dll" "$(SolutionDir)Build\$(PlatformShortName)-$(Configuration)"
-xcopy /y /d "$(SolutionDir)Dependencies\FMOD\DLL\$(PlatformShortName)\fmodstudioL.dll" "$(SolutionDir)Build\$(PlatformShortName)-$(Configuration)"</Command>
+      <Command>xcopy /y /d "$(SolutionDir)Dependencies\FMOD\DLL\$(PlatformShortName)\fmod.dll" "$(SolutionDir)Build\$(SolutionName)-$(PlatformShortName)-$(Configuration)"
+xcopy /y /d "$(SolutionDir)Dependencies\FMOD\DLL\$(PlatformShortName)\fmodL.dll" "$(SolutionDir)Build\$(SolutionName)-$(PlatformShortName)-$(Configuration)"
+xcopy /y /d "$(SolutionDir)Dependencies\FMOD\DLL\$(PlatformShortName)\fmodstudio.dll" "$(SolutionDir)Build\$(SolutionName)-$(PlatformShortName)-$(Configuration)"
+xcopy /y /d "$(SolutionDir)Dependencies\FMOD\DLL\$(PlatformShortName)\fmodstudioL.dll" "$(SolutionDir)Build\$(SolutionName)-$(PlatformShortName)-$(Configuration)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -146,6 +152,8 @@ xcopy /y /d "$(SolutionDir)Dependencies\FMOD\DLL\$(PlatformShortName)\fmodstudio
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\json;$(SolutionDir)Dependencies\FMOD\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -154,10 +162,10 @@ xcopy /y /d "$(SolutionDir)Dependencies\FMOD\DLL\$(PlatformShortName)\fmodstudio
       <AdditionalDependencies>fmod_vc.lib;fmodL_vc.lib;fmodstudio_vc.lib;fmodstudioL_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /y /d "$(SolutionDir)Dependencies\FMOD\DLL\$(PlatformShortName)\fmod.dll" "$(SolutionDir)Build\$(PlatformShortName)-$(Configuration)"
-xcopy /y /d "$(SolutionDir)Dependencies\FMOD\DLL\$(PlatformShortName)\fmodL.dll" "$(SolutionDir)Build\$(PlatformShortName)-$(Configuration)"
-xcopy /y /d "$(SolutionDir)Dependencies\FMOD\DLL\$(PlatformShortName)\fmodstudio.dll" "$(SolutionDir)Build\$(PlatformShortName)-$(Configuration)"
-xcopy /y /d "$(SolutionDir)Dependencies\FMOD\DLL\$(PlatformShortName)\fmodstudioL.dll" "$(SolutionDir)Build\$(PlatformShortName)-$(Configuration)"</Command>
+      <Command>xcopy /y /d "$(SolutionDir)Dependencies\FMOD\DLL\$(PlatformShortName)\fmod.dll" "$(SolutionDir)Build\$(SolutionName)-$(PlatformShortName)-$(Configuration)"
+xcopy /y /d "$(SolutionDir)Dependencies\FMOD\DLL\$(PlatformShortName)\fmodL.dll" "$(SolutionDir)Build\$(SolutionName)-$(PlatformShortName)-$(Configuration)"
+xcopy /y /d "$(SolutionDir)Dependencies\FMOD\DLL\$(PlatformShortName)\fmodstudio.dll" "$(SolutionDir)Build\$(SolutionName)-$(PlatformShortName)-$(Configuration)"
+xcopy /y /d "$(SolutionDir)Dependencies\FMOD\DLL\$(PlatformShortName)\fmodstudioL.dll" "$(SolutionDir)Build\$(SolutionName)-$(PlatformShortName)-$(Configuration)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -170,6 +178,10 @@ xcopy /y /d "$(SolutionDir)Dependencies\FMOD\DLL\$(PlatformShortName)\fmodstudio
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\json;$(SolutionDir)Dependencies\FMOD\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -180,10 +192,10 @@ xcopy /y /d "$(SolutionDir)Dependencies\FMOD\DLL\$(PlatformShortName)\fmodstudio
       <AdditionalDependencies>fmod_vc.lib;fmodL_vc.lib;fmodstudio_vc.lib;fmodstudioL_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /y /d "$(SolutionDir)Dependencies\FMOD\DLL\$(PlatformShortName)\fmod.dll" "$(SolutionDir)Build\$(PlatformShortName)-$(Configuration)"
-xcopy /y /d "$(SolutionDir)Dependencies\FMOD\DLL\$(PlatformShortName)\fmodL.dll" "$(SolutionDir)Build\$(PlatformShortName)-$(Configuration)"
-xcopy /y /d "$(SolutionDir)Dependencies\FMOD\DLL\$(PlatformShortName)\fmodstudio.dll" "$(SolutionDir)Build\$(PlatformShortName)-$(Configuration)"
-xcopy /y /d "$(SolutionDir)Dependencies\FMOD\DLL\$(PlatformShortName)\fmodstudioL.dll" "$(SolutionDir)Build\$(PlatformShortName)-$(Configuration)"</Command>
+      <Command>xcopy /y /d "$(SolutionDir)Dependencies\FMOD\DLL\$(PlatformShortName)\fmod.dll" "$(SolutionDir)Build\$(SolutionName)-$(PlatformShortName)-$(Configuration)"
+xcopy /y /d "$(SolutionDir)Dependencies\FMOD\DLL\$(PlatformShortName)\fmodL.dll" "$(SolutionDir)Build\$(SolutionName)-$(PlatformShortName)-$(Configuration)"
+xcopy /y /d "$(SolutionDir)Dependencies\FMOD\DLL\$(PlatformShortName)\fmodstudio.dll" "$(SolutionDir)Build\$(SolutionName)-$(PlatformShortName)-$(Configuration)"
+xcopy /y /d "$(SolutionDir)Dependencies\FMOD\DLL\$(PlatformShortName)\fmodstudioL.dll" "$(SolutionDir)Build\$(SolutionName)-$(PlatformShortName)-$(Configuration)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

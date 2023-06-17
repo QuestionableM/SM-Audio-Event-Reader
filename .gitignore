@@ -1,3 +1,4 @@
 /.vs
 /Junk
 /Build
+*.vcxproj.user

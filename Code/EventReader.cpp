@@ -99,8 +99,11 @@ void SMEventReader::ReadEvents(const std::string& bank_path, const std::string& 
 				continue;
 			}
 
+			if (param_desc.type != FMOD_STUDIO_PARAMETER_TYPE::FMOD_STUDIO_PARAMETER_GAME_CONTROLLED)
+				continue;
+
 			FMODEventParameterData new_parameter;
-			new_parameter.name = std::string(param_desc.name);
+			new_parameter.name = param_desc.name;
 			new_parameter.default_value = param_desc.defaultvalue;
 			new_parameter.min_value = param_desc.minimum;
 			new_parameter.max_value = param_desc.maximum;
